@@ -10,7 +10,7 @@ import java.util.Set;
 public class ArrayAndStrings {
 
 	public static void main(String[] args) {
-		String[] emails = {"test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"};
+		String[] emails = {"testemail@leetcode.com","testemail1@leetcode.com","testemail+david@lee.tcode.com"};
 		numUniqueEmails(emails);
 	}
 
@@ -72,11 +72,12 @@ public class ArrayAndStrings {
 	        for(String email:emails){
 	            String[] em = email.split("@");
 	            String user = em[0];
+	            String temp = user;
 	            if(em[0].contains("+")){
-	                user = user.substring(0,user.indexOf('+'));
+	            	user = user.substring(0,user.indexOf('+'));
 	            }
 	            
-	            user = user.replaceAll(".", "");
+	            user.replaceAll("\\.", "");
 	            hash_Set.add(user+"@"+em[1]);
 	        }
 	        return hash_Set.size();
